@@ -1,8 +1,9 @@
 package br.lcsantana.appium.tests;
 
 import br.lcsantana.appium.core.BaseTest;
-import br.lcsantana.appium.core.DriverFactory;
+import br.lcsantana.appium.pages.CarrinhoPage;
 import br.lcsantana.appium.pages.MenuLateralPage;
+import br.lcsantana.appium.pages.ProdutoPage;
 import br.lcsantana.appium.utils.Utils;
 import io.appium.java_client.MobileBy;
 import io.qameta.allure.Feature;
@@ -18,6 +19,8 @@ import org.openqa.selenium.By;
 public class TestAppium extends BaseTest {
 
     MenuLateralPage mlPage = new MenuLateralPage();
+    ProdutoPage prPage = new ProdutoPage();
+    CarrinhoPage crPage = new CarrinhoPage();
 
     @Test
     @Feature("Login")
@@ -31,24 +34,12 @@ public class TestAppium extends BaseTest {
     @Test
     @Feature("Compras item")
     public void testComprarItem() {
-        Utils.click(By.xpath("//*[@text='Sauce Labs Backpack']/preceding-sibling::*"));
-        Utils.esperarElemento(MobileBy.AccessibilityId("Displays available colors of selected product"));
-        Utils.scrollDown(0.1);
-        Utils.esperarElemento(MobileBy.AccessibilityId("Tap to add product to cart"));
-        Utils.click(MobileBy.AccessibilityId("Tap to add product to cart"));
-        Utils.esperarElemento(By.xpath("//*[@text='1']"));
-        Utils.click(By.xpath("//*[@text='1']"));
-        Utils.esperarElemento(By.xpath("//*[@text='My Cart']"));
-
-        String priceProduct = DriverFactory.getDriver().findElement(By.id("com.saucelabs.mydemoapp.android:id/priceTV")).getText();
-        String totalPrice = DriverFactory.getDriver().findElement(By.id("com.saucelabs.mydemoapp.android:id/totalPriceTV")).getText();
-
-        String qtdProduct = DriverFactory.getDriver().findElement(By.id("com.saucelabs.mydemoapp.android:id/noTV")).getText();
-        String qtdItemCart = DriverFactory.getDriver().findElement(By.id("com.saucelabs.mydemoapp.android:id/itemsTV")).getText();
+        prPage.adicionarProdutoNoCarrinho();
+        prPage.acessarCarrinho();
 
         Assertions.assertEquals("Sauce Labs Backpack", Utils.obterTexto(By.xpath("//*[@text='Sauce Labs Backpack']")));
-        Assertions.assertEquals(priceProduct, totalPrice);
-        Assertions.assertEquals("1", qtdProduct);
-        MatcherAssert.assertThat(qtdItemCart, Matchers.containsString("1"));
+        Assertions.assertEquals(crPage.getPrecoProduto(), crPage.getPrecoCarrinho());
+        Assertions.assertEquals("1", crPage.getQtdProduto());
+        MatcherAssert.assertThat(crPage.getQtdProdutoCarrinho(), Matchers.containsString("1"));
     }
 }
