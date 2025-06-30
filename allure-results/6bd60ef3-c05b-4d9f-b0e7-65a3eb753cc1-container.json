@@ -1,0 +1,1 @@
+{"uuid":"6bd60ef3-c05b-4d9f-b0e7-65a3eb753cc1","name":"TestAppium","children":["dfc1c82e-8cd2-4fb0-96a4-86ccf69947e6","6cb3ff60-5d2e-4cf9-abdf-c25a82a28cb1"],"befores":[],"afters":[{"name":"teardown","status":"passed","stage":"finished","steps":[],"attachments":[],"parameters":[],"start":1751312060821,"stop":1751312061144}],"start":1751312015953,"stop":1751312061144}

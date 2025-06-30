@@ -1,0 +1,21 @@
+name: Teste mobile
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      SAUCELABS_ACCESSKEY : ${{secrets.SAUCELABS_ACCESSKEY}}
+      SAUCELABS_USERNAME : ${{secrets.SAUCELABS_USERNAME}}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Executar testes
+        run: mvn clean test
