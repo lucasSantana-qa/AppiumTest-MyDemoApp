@@ -1,3 +1,3 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Tue Jul 01 01:50:38 UTC 2025","Tue Jul 01 01:51:01 UTC 2025","22523","","br.lcsantana.appium.tests.TestAppium","","br.lcsantana.appium.tests.TestAppium","testLoginComSucesso","testLoginComSucesso()",""
-"passed","Tue Jul 01 01:49:20 UTC 2025","Tue Jul 01 01:50:38 UTC 2025","78253","","br.lcsantana.appium.tests.TestAppium","","br.lcsantana.appium.tests.TestAppium","testComprarItem","testComprarItem()",""
+"passed","Tue Jul 01 01:52:26 UTC 2025","Tue Jul 01 01:52:50 UTC 2025","24365","","br.lcsantana.appium.tests.TestAppium","","br.lcsantana.appium.tests.TestAppium","testLoginComSucesso","testLoginComSucesso()",""
+"passed","Tue Jul 01 01:49:42 UTC 2025","Tue Jul 01 01:52:26 UTC 2025","163513","","br.lcsantana.appium.tests.TestAppium","","br.lcsantana.appium.tests.TestAppium","testComprarItem","testComprarItem()",""
