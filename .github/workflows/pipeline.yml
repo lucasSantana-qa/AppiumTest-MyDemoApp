@@ -19,3 +19,9 @@ jobs:
 
       - name: Executar testes
         run: mvn clean test
+
+      - name: Upload relatório Allure
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report
+          path: target/allure-report
