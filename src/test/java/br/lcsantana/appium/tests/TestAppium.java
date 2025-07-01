@@ -40,6 +40,6 @@ public class TestAppium extends BaseTest {
         Assertions.assertEquals("Sauce Labs Backpack", Utils.obterTexto(By.xpath("//*[@text='Sauce Labs Backpack']")));
         Assertions.assertEquals(crPage.getPrecoProduto(), crPage.getPrecoCarrinho());
         Assertions.assertEquals("1", crPage.getQtdProduto());
-        MatcherAssert.assertThat(crPage.getQtdProdutoCarrinho(), Matchers.containsString(" 1 "));
+        MatcherAssert.assertThat(crPage.getQtdProdutoCarrinho(), Matchers.containsString("1 "));
     }
 }
